@@ -9,4 +9,4 @@ const data = lines.filter((line) => !line.startsWith('#')).filter((line) => line
 const sorted = data.filter((line, i, arr) => arr.indexOf(line) == i).sort().map((line) => line + ':')
 
 const result = [...comments, ...sorted].join('\n')
-fs.writeFileSync('./preprocessed-data/metro-station_sorted.tsv', result)
+fs.writeFileSync('./preprocessed-data/metro-station_sorted.txt', result)
