@@ -8,7 +8,7 @@ const data = lines.filter((line) => !line.startsWith('#')).filter((line) => line
 
 const variant = data.map((line) => {
     const [hangul, hanja] = line.split(':')
-    return `${hangul}역:${hanja}驛`
+    return `${hangul}역:${hanja}驛:`
 })
 
 const result = [...comments, ...variant].join('\n')
