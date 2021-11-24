@@ -3,6 +3,7 @@ const dic2 = buildDict('dic/dic2.txt')
 const dic4 = buildDict('dic/dic4.txt')
 const jp = buildDict('dic/jp.txt')
 const cn = buildDict('dic/cn.txt')
+const tw = buildDict('dic/tw.txt')
 const MAX_LENGTH = 10
 const convertHanjaReading = (str, initial=true) => {
     if(str.includes(' ')) return str.split(' ').map((word) => convertHanjaReading(word, true)).join(' ')
@@ -42,4 +43,5 @@ const initialSoundLaw = (str) => {
     if(c[0] == 'ᄂ' && 'ᅣᅤᅧᅨᅭᅲᅴᅵ'.includes(c[1])) c[0] = 'ᄋ'
     return c.join('').normalize('NFC') + str.slice(1)
 }
-module.exports = {convertHanjaReading, initialSoundLaw}
+const replaceVariant = (hanja) => hanja.split('').map((c) => tw[c] || c).join('')
+module.exports = {convertHanjaReading, initialSoundLaw, replaceVariant}

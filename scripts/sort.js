@@ -1,7 +1,10 @@
 
 const fs = require('fs')
 
-const lines = fs.readFileSync('./preprocessed-data/metro-station_corrected.tsv').toString().split('\n')
+const inFile = './preprocessed-data/person-name_replaced.txt'
+const outFile = './preprocessed-data/person-name_sorted.txt'
+
+const lines = fs.readFileSync(inFile).toString().split('\n')
 
 const comments = lines.filter((line) => line.startsWith('#'))
 const data = lines.filter((line) => !line.startsWith('#')).filter((line) => line.trim())
@@ -9,4 +12,4 @@ const data = lines.filter((line) => !line.startsWith('#')).filter((line) => line
 const sorted = data.filter((line, i, arr) => arr.indexOf(line) == i).sort().map((line) => line + ':')
 
 const result = [...comments, ...sorted].join('\n')
-fs.writeFileSync('./preprocessed-data/metro-station_sorted.txt', result)
+fs.writeFileSync(outFile, result)
