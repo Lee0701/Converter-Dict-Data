@@ -1,0 +1,7 @@
+{
+  "dependencies": {
+    "block-queue": "^0.0.2",
+    "mongodb": "^4.2.0",
+    "wikijs": "^6.3.2"
+  }
+}
